@@ -52,6 +52,10 @@ int main() {
 	VBO vbo(vertices,sizeof(vertices));
 	EBO ebo(indices,sizeof(indices));
 
+	vao.LinkAttrib(vbo, 0);
+	vao.Unbind();
+	vbo.Unbind();
+	ebo.Unbind();
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
@@ -81,8 +85,15 @@ int main() {
 	vbo.Delete();
 	ebo.Delete();
 	shaderProgram.Delete();
-
 	glfwDestroyWindow(window);
 	glfwTerminate();
 	return 0;
+
+
+
+
+
+
+
+
 }
